@@ -7,13 +7,36 @@ const home = new homePage();
 const sideMenu = new sideMenuPage();
 const login = new loginPage();
 
+/**
+ *
+ * Verifying the login necessary is essential, as no other application
+ * features can be accessed or tested without successful authentication.
+ *
+ * The functionality is purposely separated into two distinct test cases:
+ * one for login and one for logout. This ensures that if the login test fails,
+ * we can immediately identify the root cause of subsequent test failures,
+ * since the rest of the test suite depends on a successful login.
+ *
+ * The logout test is implemented as a standalone case to provide clear and
+ * isolated feedback. For my point of view keeping login and logout independent 
+ * prevents one failure from obscuring the other and makes test results easier to diagnose.
+ */
 describe('Successful login and logout', () => {
-  it('should log in with valid credentials and logout', () => {
+  beforeEach(() => {
     cy.login();
+  });
+
+  it('should log in with valid credentials', () => {
+    cy.url()
+    .should('include', '/inventory.html');
+  })
+
+  it('should log in with valid credentials and logout', () => {
     home.elements.sideBurgerMenuButton()
       .click();
     sideMenu.elements.logout()
       .click();
+    cy.url().should('eq', 'https://www.saucedemo.com/');
     login.elements.usernameInput()
       .should('be.visible');
   })
