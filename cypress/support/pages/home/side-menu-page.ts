@@ -1,4 +1,4 @@
-export class sideMenuPage {
+export class SideMenuPage {
   elements = {
     allItems: () => cy.getByTestId('inventory-sidebar-link'),
     about: () => cy.getByTestId('about-sidebar-link'),

@@ -1,4 +1,4 @@
-export class loginPage {
+export class LoginPage {
   elements = {
     usernameInput: () => cy.getByTestId('username'),
     passwordInput: () => cy.getByTestId('password'),
