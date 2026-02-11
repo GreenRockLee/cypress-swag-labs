@@ -9,6 +9,12 @@ declare global {
             */
             login(): Chainable<void>;
 
+
+            /**
+            * Custom command for logging into the application without using session.
+            */
+            loginWithoutSession(): Chainable<void>;
+
             /**
             * Custom selector helper for querying elements by data-test attribute.
             *
@@ -54,6 +60,30 @@ Cypress.Commands.add('getById', (selector, options = {}) => {
  * Credentials are retrieved from environment variables to avoid hardcoding secrets.
  */
 Cypress.Commands.add('login', () => {
+    // Retrieve credentials from environment variables
+    const username = Cypress.env('OFFER_USERNAME');
+    const password = Cypress.env('OFFER_PASSWORD');
+
+    // Validate that credentials are provided
+    if (!username || !password) {
+        throw new Error('Missing OFFER_USERNAME or OFFER_PASSWORD in .env file.');
+    }
+
+    // Open base URL and perform login steps
+    cy.session('user', () => {
+        cy.visit('/')
+        cy.getByTestId('username').type(username)
+        cy.getByTestId('password').type(password)
+        cy.getByTestId('login-button').click()
+        cy.getByTestId('header-container').should('be.visible')
+    });
+});
+
+/**
+ * Custom command to log in without using session. 
+ * Credentials are retrieved from environment variables to avoid hardcoding secrets.
+ */
+Cypress.Commands.add('loginWithoutSession', () => {
     // Retrieve credentials from environment variables
     const username = Cypress.env('OFFER_USERNAME');
     const password = Cypress.env('OFFER_PASSWORD');

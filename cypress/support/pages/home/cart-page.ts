@@ -7,6 +7,7 @@ export class CartPage {
     productPrice: () => cy.getByTestId('inventory-item-price'),
     cartProducts: () => cy.get('[data-test*="cart-list"]').children('div[data-test*="inventory-item"]'),
     continueShoppingButton: () => cy.getByTestId('continue-shopping'),
+    checkoutButton: () => cy.getByTestId('checkout'),
   };
 
   // Method to assert product details in the cart

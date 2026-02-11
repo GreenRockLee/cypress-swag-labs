@@ -22,12 +22,12 @@ const loginPage = new LoginPage();
  */
 describe('Successful login and logout', () => {
   beforeEach(() => {
-    cy.login();
+    cy.loginWithoutSession();
   });
 
   it('should log in with valid credentials', () => {
     cy.url()
-    .should('include', '/inventory.html');
+      .should('include', '/inventory.html');
   })
 
   it('should log in with valid credentials and logout', () => {
