@@ -6,6 +6,12 @@ const homePage = new HomePage();
 const cartPage = new CartPage();
 let products: Product[];
 
+/**
+ * Another component I decided to test separately is the cart.
+ * One of the most critical functionalities is the ability to
+ * add and remove individual items and ensure they are correctly
+ * reflected in the cart.
+ */
 describe('Cart functionality', () => {
     beforeEach(() => {
         cy.login();
@@ -85,7 +91,7 @@ describe('Cart functionality', () => {
         homePage.elements.shoppingCartButton()
             .click();
         cartPage.elements.cartProducts()
-        .should('have.length', 0);
+            .should('have.length', 0);
 
         // Go to homepage and verify that all products are still displayed with correct details
         cartPage.elements.continueShoppingButton()
@@ -97,11 +103,11 @@ describe('Cart functionality', () => {
             homePage.assertProductButtonStatus(p.name, 'Add to cart');
         });
     })
-});    
+});
 
 // Helper function to find a product details by the product name
 const findProduct = (name: string): Product => {
-        const p = products.find(x => x.name === name);
-        if (!p) throw new Error(`Missing product "${name}" in products.json`);
-        return p;
-    };
+    const p = products.find(x => x.name === name);
+    if (!p) throw new Error(`Missing product "${name}" in products.json`);
+    return p;
+};

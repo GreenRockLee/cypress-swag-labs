@@ -13,6 +13,12 @@ const overviewPage = new OverviewPage();
 const finishPage = new FinishPage();
 let products: Product[];
 
+/**
+ * As a final step, I implemented an end-to-end test that
+ * goes through all individual sections and completes an order.
+ * Since this represents the core functionality of the application,
+ * it allows us to fully verify that the entire flow works as expected.
+ */
 describe('Order finalization', () => {
     beforeEach(() => {
         cy.login();

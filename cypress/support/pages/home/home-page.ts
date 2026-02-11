@@ -2,6 +2,7 @@ import type { Product } from '../../types/product';
 
 export class HomePage {
   elements = {
+    title : () => cy.getByTestId('title'),
     sideBurgerMenuButton: () => cy.getById('react-burger-menu-btn'),
     products: () => cy.get('.inventory_item'),
     productName: () => cy.getByTestId('inventory-item-name'),
@@ -9,6 +10,7 @@ export class HomePage {
     productPrice: () => cy.getByTestId('inventory-item-price'),
     shoppingCartButton: () => cy.getById('shopping_cart_container'),
     shoppingCartBadge: () => cy.getByTestId('shopping-cart-badge'),
+    productsFilter: () => cy.getByTestId('product-sort-container'),
   };
 
   // Method to add a product to the cart by its name
