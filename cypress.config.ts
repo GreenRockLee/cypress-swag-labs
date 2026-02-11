@@ -1,11 +1,23 @@
 import { defineConfig } from "cypress";
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 export default defineConfig({
-  allowCypressEnv: false,
-
   e2e: {
+    baseUrl: 'https://www.saucedemo.com',
+    viewportWidth: 1920,
+    viewportHeight: 1080,
+    numTestsKeptInMemory: 0,
+    scrollBehavior: 'center',
+    experimentalMemoryManagement: true,
+    defaultBrowser: 'chrome',
     setupNodeEvents(on, config) {
-      // implement node event listeners here
+      return config;
     },
   },
+  env: {
+    OFFER_USERNAME: process.env['OFFER_USERNAME'],
+    OFFER_PASSWORD: process.env['OFFER_PASSWORD'],
+  }
 });
