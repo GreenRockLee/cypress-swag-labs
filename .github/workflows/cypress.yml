@@ -1,0 +1,39 @@
+name: Cypress E2E
+
+on:
+  push:
+    branches: ["main", "develop"]
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Install
+        run: npm ci
+
+      - name: Run Cypress
+        uses: cypress-io/github-action@v6
+        with:
+          command: npm run test:ci
+        env:
+          OFFER_USERNAME: ${{ secrets.OFFER_USERNAME }}
+          OFFER_PASSWORD: ${{ secrets.OFFER_PASSWORD }}
+
+      - name: Upload artifacts
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-artifacts
+          path: |
+            cypress/screenshots
+            cypress/videos
