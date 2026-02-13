@@ -2,7 +2,7 @@ import type { Product } from '../../types/product';
 
 export class HomePage {
   elements = {
-    title : () => cy.getByTestId('title'),
+    title: () => cy.getByTestId('title'),
     sideBurgerMenuButton: () => cy.getById('react-burger-menu-btn'),
     products: () => cy.get('.inventory_item'),
     productName: () => cy.getByTestId('inventory-item-name'),
@@ -35,11 +35,11 @@ export class HomePage {
   // Method to assert product details on the homepage
   assertProductDetails(product: Product) {
     cy.contains('.inventory_item', product.name)
-    .within(() => {
-      this.elements.productName().should('have.text', product.name);
-      this.elements.productDescription().should('have.text', product.desc);
-      this.elements.productPrice().should('have.text', product.price);
-    });
+      .within(() => {
+        this.elements.productName().should('have.text', product.name);
+        this.elements.productDescription().should('have.text', product.desc);
+        this.elements.productPrice().should('have.text', product.price);
+      });
   }
 
   // Method to assert the status of the product button (Add to cart or Remove) based on the product name
