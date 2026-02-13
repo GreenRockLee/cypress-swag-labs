@@ -10,6 +10,7 @@ describe('Users API', () => {
       qs: { page: 2 },
       headers: getHeaders(),
     }).then(({ status, body }) => {
+      // Assert status code
       expect(status).to.eq(200)
 
       // Assert "total"
@@ -45,6 +46,39 @@ describe('Users API', () => {
         expect(u.last_name).to.be.a('string').and.not.be.empty;
         expect(u.avatar).to.be.a('string').and.not.be.empty;
       });
+    })
+  })
+
+  it('POST - should return code 201 and valid response schema', () => {
+    cy.fixture('create-users').then((users) => {
+      users.forEach((userData: any) => {
+        cy.request({
+          method: 'POST',
+          url: `${apiBaseUrl}/users`,
+          body: userData,
+          headers: getHeaders(),
+        }).then(({ body, duration, status }) => {
+          // Assert status code
+          expect(status).to.eq(201)
+
+          // Response schema
+          expect(body).to.include.all.keys('id', 'createdAt', 'name', 'job');
+          expect(body.id).to.be.a('string');
+          expect(body.createdAt).to.be.a('string');
+          expect(body.name).to.be.a('string');
+          expect(body.job).to.be.a('string');
+
+          // Assert ID
+          expect(body.id).not.be.empty;
+
+          // Assert createdAt timestamp
+          expect(body.createdAt).not.be.empty;
+          expect(Date.parse(body.createdAt)).to.not.be.NaN;
+
+          // Assert response time
+          expect(duration).to.be.lessThan(Cypress.env('RESPONSE_TIME_LIMIT'))
+        })
+      })
     })
   })
 })

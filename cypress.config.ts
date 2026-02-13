@@ -21,5 +21,6 @@ export default defineConfig({
     OFFER_PASSWORD: process.env['OFFER_PASSWORD'],
     API_BASE_URL: 'https://reqres.in/api',
     API_KEY: process.env['API_KEY'],
+    RESPONSE_TIME_LIMIT: 300
   }
 });
