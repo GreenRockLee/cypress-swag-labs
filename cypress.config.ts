@@ -4,6 +4,10 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 export default defineConfig({
+  retries: {
+    runMode: 1,
+    openMode: 0
+  },
   e2e: {
     baseUrl: 'https://www.saucedemo.com',
     viewportWidth: 1920,
@@ -19,5 +23,8 @@ export default defineConfig({
   env: {
     OFFER_USERNAME: process.env['OFFER_USERNAME'],
     OFFER_PASSWORD: process.env['OFFER_PASSWORD'],
+    API_BASE_URL: 'https://reqres.in/api',
+    API_KEY: process.env['API_KEY'],
+    RESPONSE_TIME_LIMIT: 300
   }
 });
