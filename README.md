@@ -16,6 +16,7 @@ npm install
 - Create a .env file in the root directory and add the following credentials:  
  OFFER_USERNAME=standard_user  
  OFFER_PASSWORD=secret_sauce
+ API_KEY=[It is necessary to create an account at https://reqres.in/ and generate an API key.]
 
 ### 4. Run the Tests
 - in headed mode:    
