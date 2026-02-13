@@ -37,7 +37,7 @@ describe('Order finalization', () => {
             products[4].name,
             products[5].name,
         ];
-        
+
         // Add products to cart
         productsToAdd.forEach((name, i) => {
             homePage.addProductToCart(name);
@@ -57,31 +57,8 @@ describe('Order finalization', () => {
             .should('be.visible')
             .should('have.text', 'Checkout: Your Information');
 
-        // First name input
-        checkoutPage.elements.firstNameInput()
-            .should('be.visible');
-        checkoutPage.elements.firstNameInput()
-            .type('John');
-        checkoutPage.elements.firstNameInput()
-            .should('have.value', 'John');
-
-        // Last name input
-        checkoutPage.elements.lastNameInput()
-            .should('be.visible');
-        checkoutPage.elements.lastNameInput()
-            .type('Doe');
-        checkoutPage.elements.lastNameInput()
-            .should('have.value', 'Doe');
-
-        // Postal code input
-        checkoutPage.elements.postalCodeInput()
-            .should('be.visible');
-        checkoutPage.elements.postalCodeInput()
-            .type('12345');
-        checkoutPage.elements.postalCodeInput()
-            .should('have.value', '12345');
-
-        // Click on continue button and verify that overview page is displayed
+        // Fill checkout form, click on continue button and verify that overview page is displayed
+        checkoutPage.fillCheckoutForm('John', 'Doe', '12345');
         checkoutPage.elements.continueButton()
             .should('be.visible')
             .click();
