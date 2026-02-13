@@ -1,4 +1,18 @@
 [
-  { "name": "morpheus", "job": "leader" },
-  { "name": "neo", "job": "trinity enjoyer" }
+  {
+    "name": "morpheus",
+    "job": "red and blue pill dealer"
+  },
+  {
+    "name": "neo",
+    "job": "trinity enjoyer"
+  },
+  {
+    "name": "trinity",
+    "job": "zion operative "
+  },
+  {
+    "name": "agent smith",
+    "job": "full-time agent"
+  }
 ]

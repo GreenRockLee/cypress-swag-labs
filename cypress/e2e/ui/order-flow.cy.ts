@@ -1,10 +1,10 @@
-import { HomePage } from '../support/pages/home/home-page';
-import { CartPage } from '../support/pages/home/cart-page';
-import { CheckoutPage } from '../support/pages/home/checkout-page';
-import { OverviewPage } from '../support/pages/home/overview-page';
-import { FinishPage } from '../support/pages/home/finish-page';
-import { MESSAGES } from '../support/constants';
-import type { Product } from '../support/types/product';
+import { HomePage } from '../../support/pages/home/home-page';
+import { CartPage } from '../../support/pages/home/cart-page';
+import { CheckoutPage } from '../../support/pages/home/checkout-page';
+import { OverviewPage } from '../../support/pages/home/overview-page';
+import { FinishPage } from '../../support/pages/home/finish-page';
+import { MESSAGES } from '../../support/constants';
+import type { Product } from '../../support/types/product';
 
 const homePage = new HomePage();
 const cartPage = new CartPage();

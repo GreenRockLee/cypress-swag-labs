@@ -1,7 +1,7 @@
-import { HomePage } from '../support/pages/home/home-page';
-import { SideMenuPage } from '../support/pages/home/side-menu-page';
-import { LoginPage } from '../support/pages/login-page';
-import { AUTH_ERRORS } from '../support/constants';
+import { HomePage } from '../../support/pages/home/home-page';
+import { SideMenuPage } from '../../support/pages/home/side-menu-page';
+import { LoginPage } from '../../support/pages/login-page';
+import { AUTH_ERRORS } from '../../support/constants';
 
 const homePage = new HomePage();
 const sideMenuPage = new SideMenuPage();

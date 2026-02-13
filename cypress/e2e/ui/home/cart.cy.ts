@@ -1,6 +1,6 @@
-import { HomePage } from '../../support/pages/home/home-page';
-import { CartPage } from '../../support/pages/home/cart-page';
-import type { Product } from '../../support/types/product';
+import { HomePage } from '../../../support/pages/home/home-page';
+import { CartPage } from '../../../support/pages/home/cart-page';
+import type { Product } from '../../../support/types/product';
 
 const homePage = new HomePage();
 const cartPage = new CartPage();

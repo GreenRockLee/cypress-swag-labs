@@ -1,5 +1,5 @@
-import { HomePage } from '../../support/pages/home/home-page';
-import type { Product } from '../../support/types/product';
+import { HomePage } from '../../../support/pages/home/home-page';
+import type { Product } from '../../../support/types/product';
 
 const homePage = new HomePage();
 let products: Product[];
