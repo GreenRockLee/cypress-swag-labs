@@ -28,6 +28,7 @@ jobs:
         env:
           OFFER_USERNAME: ${{ secrets.OFFER_USERNAME }}
           OFFER_PASSWORD: ${{ secrets.OFFER_PASSWORD }}
+          API_KEY: ${{ secrets.API_KEY }}
 
       - name: Upload artifacts
         if: failure()

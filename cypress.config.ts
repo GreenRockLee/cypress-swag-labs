@@ -19,5 +19,7 @@ export default defineConfig({
   env: {
     OFFER_USERNAME: process.env['OFFER_USERNAME'],
     OFFER_PASSWORD: process.env['OFFER_PASSWORD'],
+    API_BASE_URL: 'https://reqres.in/api',
+    API_KEY: process.env['API_KEY'],
   }
 });
