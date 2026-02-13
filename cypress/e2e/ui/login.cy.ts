@@ -27,7 +27,7 @@ describe('Successful login and logout', () => {
 
   it('should log in with valid credentials', () => {
     cy.url()
-    .should('include', '/inventory.html');
+      .should('include', '/inventory.html');
   })
 
   it('should log in with valid credentials and logout', () => {

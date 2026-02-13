@@ -32,10 +32,10 @@ describe('Order finalization', () => {
     it('should add products to cart, fill in shipping details, and verify order totals including tax', () => {
         // List of products that will be added to the cart later in the test
         const productsToAdd = [
-            'Sauce Labs Backpack',
-            'Sauce Labs Bike Light',
-            'Sauce Labs Onesie',
-            'Test.allTheThings() T-Shirt (Red)',
+            products[0].name,
+            products[1].name,
+            products[2].name,
+            products[3].name,
         ];
 
         // Add products to cart
