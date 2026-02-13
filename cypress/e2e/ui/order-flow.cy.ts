@@ -34,10 +34,10 @@ describe('Order finalization', () => {
         const productsToAdd = [
             products[0].name,
             products[1].name,
-            products[2].name,
-            products[3].name,
+            products[4].name,
+            products[5].name,
         ];
-
+        
         // Add products to cart
         productsToAdd.forEach((name, i) => {
             homePage.addProductToCart(name);
