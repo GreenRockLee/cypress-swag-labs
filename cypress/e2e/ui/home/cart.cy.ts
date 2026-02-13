@@ -25,16 +25,16 @@ describe('Cart functionality', () => {
     it('should correctly handle adding, removing and persisting multiple cart products', () => {
         // List of products that will be added to the cart later in the test
         const productsToAdd = [
-            'Sauce Labs Backpack',
-            'Sauce Labs Bike Light',
-            'Sauce Labs Onesie',
-            'Test.allTheThings() T-Shirt (Red)',
+            products[0].name,
+            products[1].name,
+            products[2].name,
+            products[3].name,
         ];
 
         // List of products that will be removed from the cart later in the test
         const productsToRemove = [
-            'Sauce Labs Onesie',
-            'Test.allTheThings() T-Shirt (Red)',
+            products[2].name,
+            products[3].name,
         ];
 
         // List of products that should remain in the cart after removal

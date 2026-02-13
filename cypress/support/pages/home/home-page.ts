@@ -34,7 +34,8 @@ export class HomePage {
 
   // Method to assert product details on the homepage
   assertProductDetails(product: Product) {
-    cy.contains('.inventory_item', product.name).within(() => {
+    cy.contains('.inventory_item', product.name)
+    .within(() => {
       this.elements.productName().should('have.text', product.name);
       this.elements.productDescription().should('have.text', product.desc);
       this.elements.productPrice().should('have.text', product.price);
