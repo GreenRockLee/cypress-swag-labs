@@ -1,15 +1,19 @@
 # Moxymind Automation Project
 
 ## Overview
+
 This project contains automated tests built with Cypress.
 
 Each `.cy.ts` file includes a short description explaining why the specific section was selected for automation.
 
 ## Getting Started
+
 ### 1. Clone the Repository
+
 git clone https://github.com/GreenRockLee/cypress-swag-labs.git
 
 ### 2. Install Dependencies
+
 npm install
 
 ### 3. Configure Environment Variables

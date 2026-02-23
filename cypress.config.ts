@@ -1,12 +1,12 @@
-import { defineConfig } from "cypress";
-import * as dotenv from 'dotenv';
+import { defineConfig } from 'cypress'
+import * as dotenv from 'dotenv'
 
-dotenv.config();
+dotenv.config()
 
 export default defineConfig({
   retries: {
     runMode: 1,
-    openMode: 0
+    openMode: 0,
   },
   e2e: {
     baseUrl: 'https://www.saucedemo.com',
@@ -17,7 +17,7 @@ export default defineConfig({
     experimentalMemoryManagement: true,
     defaultBrowser: 'chrome',
     setupNodeEvents(on, config) {
-      return config;
+      return config
     },
   },
   env: {
@@ -25,6 +25,6 @@ export default defineConfig({
     OFFER_PASSWORD: process.env['OFFER_PASSWORD'],
     API_BASE_URL: 'https://reqres.in/api',
     API_KEY: process.env['API_KEY'],
-    RESPONSE_TIME_LIMIT: 300
-  }
-});
+    RESPONSE_TIME_LIMIT: 300,
+  },
+})

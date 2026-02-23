@@ -1,4 +1,4 @@
-import type { Product } from '../../types/product';
+import type { Product } from '../../types/product'
 
 export class HomePage {
   elements = {
@@ -11,44 +11,42 @@ export class HomePage {
     shoppingCartButton: () => cy.getById('shopping_cart_container'),
     shoppingCartBadge: () => cy.getByTestId('shopping-cart-badge'),
     productsFilter: () => cy.getByTestId('product-sort-container'),
-  };
+  }
 
   // Method to add a product to the cart by its name
   addProductToCart(productName: string) {
-    this.elements.productName()
+    this.elements
+      .productName()
       .contains(productName)
       .parents('[data-test*="inventory-item-description"]')
       .find('button')
       .contains('Add to cart')
-      .click();
+      .click()
   }
   // Method to remove a product from the cart by its name
   removeItemFromCart(productName: string) {
-    this.elements.productName()
+    this.elements
+      .productName()
       .contains(productName)
       .parents('[data-test*="inventory-item-description"]')
       .find('button')
       .contains('Remove')
-      .click();
+      .click()
   }
 
   // Method to assert product details on the homepage
   assertProductDetails(product: Product) {
-    cy.contains('.inventory_item', product.name)
-      .within(() => {
-        this.elements.productName().should('have.text', product.name);
-        this.elements.productDescription().should('have.text', product.desc);
-        this.elements.productPrice().should('have.text', product.price);
-      });
+    cy.contains('.inventory_item', product.name).within(() => {
+      this.elements.productName().should('have.text', product.name)
+      this.elements.productDescription().should('have.text', product.desc)
+      this.elements.productPrice().should('have.text', product.price)
+    })
   }
 
   // Method to assert the status of the product button (Add to cart or Remove) based on the product name
   assertProductButtonStatus(productName: string, buttonText: string) {
-    cy.contains('.inventory_item', productName)
-      .within(() => {
-        cy.get('button')
-          .should('contain.text', buttonText);
-      });
+    cy.contains('.inventory_item', productName).within(() => {
+      cy.get('button').should('contain.text', buttonText)
+    })
   }
 }
-
